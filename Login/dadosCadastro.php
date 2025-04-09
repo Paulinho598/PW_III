@@ -7,23 +7,35 @@ $gênero = $_POST['gênero'];
 
 $user = "root";
 $password = "";
-$bank = "Login";
+$database = "Login";
 $server = "localhost";
 
-$conn = new mysqli($server, $user, $password, $bank);
+$conn = new mysqli($server, $user, $password, $database);
 if($conn->connect_error){
     die($conn->connect_error);
 }
-?>
 
-<!DOCTYPE html>
-<html lang="pt-br">
-    <head>
-        <meta charset="UTF-8">
-        <link rel="stylesheet" href="stylePHP.css">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    </head>
-    <body>
-        <h1>Cadastrado com Sucesso</h1>
-    </body>
-</html>
+class Conexão{
+    private $db;
+
+    function __construct($db) {
+        $this->db = $db;
+    }
+
+    function novoDado($nome, $email, $senha, $gênero) {
+        $stmt = $this->db->prepare("insert into Dados (nome, email, senha, genero) VALUES (?,?,?,?)");
+        $stmt->bind_param("ssss", $nome, $email, $senha, $gênero);
+        try{
+           $stmt->execute();
+        }catch (Exception $e){
+            $e->getMessage();
+        }
+        $stmt->close();
+    }
+}
+
+$dado = new Conexão($conn);
+$dado->novoDado($nome,$email,$senha,$gênero);
+
+header("Location:index.html");
+?>
