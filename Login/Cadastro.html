@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <title>Cadastro</title>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="style.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div id="corpo">
+            <h1>Tela de Cadastro</h1>
+            <div id="form">
+                <form action="dadosCadastro.php" method="post">
+                        <label for="nome">Nome</label>
+                        <input type="text" name="nome" id="nome">
+                        <label for="email">E-mail</label>
+                        <input type="text" name="email" id="email">
+
+                        <label><input type="radio" name="gênero" id="Masculino" value="Masculino">Masculino</label>
+                        <label><input type="radio" name="gênero" id="Feminino" value="Feminino">Feminino</label>
+                        <label for="Outro"><input type="radio" name="gênero" id="NB" value="Outro">Não Binário</label>
+
+                        <label for="senha">Senha</label>
+                        <input type="password" name="senha" id="senha">
+
+                        <input type="submit" value="Cadastro">
+                </form>
+            </div>
+            <button id="butãum"><a href="index.html" id="forgot">Já tenho conta</a></button>
+        </div>
+    </body>
+</html>
