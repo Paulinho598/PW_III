@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="pt-br">
     <head>
-        <title>Login</title>
+        <title>Esqueci Minha Senha</title>
         <meta charset="UTF-8">
         <link rel="stylesheet" href="style.css">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,18 +14,19 @@
     </head>
     <body>
         <div id="corpo">
-            <h1>Tela de Login</h1>
+            <h1>Esqueci Minha Senha</h1>
             <div id="form">
-                <form action="dadosLogin.php" method="post">
+                <form action="Senha.php" method="post">
                         <label for="email">E-mail</label>
                         <input type="text" name="email" id="email">
-                        <label for="senha">Senha</label>
-                        <input type="password" name="senha" id="senha">
-                        <input type="submit" value="Login">
+
+                        <label for="senha">Nova Senha</label>
+                        <input type="password" name="nSenha" id="nSenha">
+
+                        <input type="submit" value="Cadastro">
                 </form>
             </div>
-            <button id="butãum"><a href="Cadastro.html" id="forgot">Não tenho conta</a></button>
-            <button id="butãum"><a href="Esqueci.html" id="forgot">Esqueci minha senha</a></button>
+            <button id="butãum"><a href="index.html" id="forgot">Voltar</a></button>
         </div>
     </body>
 </html>

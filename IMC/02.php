@@ -2,7 +2,7 @@
 
 $peso = $_GET['peso'];
 $altura = $_GET['altura'];
-$gênero = $_GET['gênero'];
+$genero = $_GET['genero'];
 $idade = $_GET['idade'];
 
 $pesoInt = floatval($peso);

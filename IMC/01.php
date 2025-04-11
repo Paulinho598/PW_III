@@ -17,10 +17,10 @@
                     <input type="text" name="peso" id="peso">
                 </div>
                 <div>
-                    <label for="gênero" class="txt">Selecione o seu gênero:</label>
-                    <input type="radio" name="gênero" id="masculino" value="masculino">
+                    <label for="genero" class="txt">Selecione o seu genero:</label>
+                    <input type="radio" name="genero" id="masculino" value="masculino">
                     <label for="masculino">Masculino</label>
-                    <input type="radio" name="gênero" id="feminino" value="feminino">
+                    <input type="radio" name="genero" id="feminino" value="feminino">
                     <label for="feminino">Feminino</label>
                 </div>
                 <div>

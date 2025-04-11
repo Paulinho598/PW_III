@@ -1,9 +1,12 @@
 <?php
+session_start();
 
 $nome = $_POST['nome'];
 $email = $_POST['email'];
 $senha = $_POST['senha'];
-$gênero = $_POST['gênero'];
+$genero = $_POST['gênero'];
+
+$senha_hash = password_hash($_POST['senha'], PASSWORD_DEFAULT);
 
 $user = "root";
 $password = "";
@@ -22,9 +25,9 @@ class Conexão{
         $this->db = $db;
     }
 
-    function novoDado($nome, $email, $senha, $gênero) {
+    function novoDado($nome, $email, $senha_hash, $genero) {
         $stmt = $this->db->prepare("insert into Dados (nome, email, senha, genero) VALUES (?,?,?,?)");
-        $stmt->bind_param("ssss", $nome, $email, $senha, $gênero);
+        $stmt->bind_param("ssss", $nome, $email, $senha_hash, $genero);
         try{
            $stmt->execute();
         }catch (Exception $e){
@@ -35,7 +38,7 @@ class Conexão{
 }
 
 $dado = new Conexão($conn);
-$dado->novoDado($nome,$email,$senha,$gênero);
+$dado->novoDado($nome,$email,$senha_hash,$genero);
 
 header("Location:index.html");
 ?>
