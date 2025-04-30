@@ -44,8 +44,8 @@
                 if(password_verify($senha,$pessoa['senha'])){
                     $_SESSION['nome'] = $pessoa['nome'];
                     $_SESSION['email'] = $pessoa['email'];
-                    $_SESSION['senha'] = $pessoa['senha'];
                     $_SESSION['gênero'] = $pessoa['gênero'];
+                    $_SESSION['senha'] = $senha;
 
                     header("Location:Dentro.php");
                     exit();

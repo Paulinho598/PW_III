@@ -2,6 +2,7 @@
 session_start();
 header('Content-Type: text/plain; charset=utf-8');
 
+$nome = $_POST['nome'];
 $email = $_POST['email'];
 $senha = password_hash($_POST['nSenha'], PASSWORD_DEFAULT);
 
@@ -23,8 +24,8 @@ class Conexao {
     }
 
     function mudarSenha($email, $senha) {
-        $stmt = $this->db->prepare("SELECT senha FROM Dados WHERE email = ?");
-        $stmt->bind_param("s", $email);
+        $stmt = $this->db->prepare("SELECT senha FROM Dados WHERE email = ? and nome = ?");
+        $stmt->bind_param("ss", $email,$nome);
         
         try {
             $stmt->execute();
@@ -36,8 +37,8 @@ class Conexao {
 
             $stmt->close();
             
-            $stmt = $this->db->prepare("UPDATE Dados SET senha = ? WHERE email = ?");
-            $stmt->bind_param("ss", $senha, $email);
+            $stmt = $this->db->prepare("UPDATE Dados SET senha = ? WHERE email = ? and nome = ?");
+            $stmt->bind_param("sss", $senha, $email, $nome);
             
             if($stmt->execute()) {
                 return "Senha alterada com sucesso!";
