@@ -7,8 +7,11 @@ nome varchar(255),
 email varchar(255),
 senha varchar(255),
 genero varchar(255),
-endereço varchar(255)
+endereço varchar(255),
+cpf varchar(255),
+cnpj varchar(255),
+data_cadastro date
 );
 
-select * from Dados;
+select * from Dados
 #drop database Login;

@@ -35,7 +35,7 @@
             $resultado = $stmt->get_result();
 
             if($resultado->num_rows === 0){
-                echo("Usuário não encontrado.");
+                header("Location:erro.php");
             }else{
                 $pessoa = $resultado->fetch_assoc();
 
