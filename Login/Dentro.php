@@ -42,8 +42,8 @@ $senha = $_SESSION['senha']*/
 
             <h1><?php echo htmlspecialchars("Bem-vindo ao site")?></h1>
             <div id="btns">
-                <button id="butãum"><a href="Perfil.html" id="forgot">Cliente</a></button>
-                <button id="butãum"><a href="Produtos.html" id="forgot">Produto</a></button>
+                <button id="butãum"><a href="Perfil.php" id="forgot">Cliente</a></button>
+                <button id="butãum"><a href="Produtos.php" id="forgot">Produto</a></button>
                 <button id="butãum"><a href="index.html" id="forgot">Sair</a></button>
             </div>
         </div>

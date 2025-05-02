@@ -10,8 +10,9 @@ genero varchar(255),
 endereço varchar(255),
 cpf varchar(255),
 cnpj varchar(255),
-data_cadastro date
+data_cadastro date,
+nível int
 );
 
-select * from Dados
+select * from Dados;
 #drop database Login;
