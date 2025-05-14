@@ -12,17 +12,24 @@ body{
 
 form{   
     display: flex;
-    padding: 30px;
+    padding: 50px;
+    border-radius: 10%;
     flex-direction: column;
     border: 1px solid black;
     background-color: lightpink;
 }
 
-input, a, label{
+input, a, label, select{
     margin: 5px;
+    font-size: 25px;
+}
+
+button{
+    border-radius: 20px;
 }
 
 h1{
+    font-size: 50px;
     text-align: center;
 }
 
