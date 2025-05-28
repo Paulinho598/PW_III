@@ -1,0 +1,84 @@
+/*body{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+#corpo{ 
+    gap: 50px;
+    display: flex;
+    width: 1800px;
+    height: 800px;
+    flex-wrap: wrap;    
+    border-radius: 10px;
+    align-items: center;
+    justify-content: center;
+    border: 3px solid black;
+    background-color:lightpink;
+}
+
+.produto{
+    display: flex;
+    width: 400px;
+    height: 500px;
+    border-radius: 10%;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    border: 2px solid black;
+    background-color: lightblue;
+}
+
+.produto label{
+    font-size: 25px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.produto .preço{
+    width: 100%;
+    height: 1px;
+    display: flex;
+    align-items: bottom;
+    justify-content: center;
+    border-top: 2px solid black;
+}*/
+
+body{
+    color: black;
+    font-weight: bolder;
+    background-color: lightblue;
+    font-family: Arial, Helvetica, sans-serif;   
+}
+
+#butãum{
+    padding: 5px;
+    display: block;
+    font-size: 18px;
+    margin: 20px auto;
+    text-align: center;
+    border-radius: 30px;
+}
+
+button, a{
+    color: red;
+    text-decoration: none;
+}
+
+#corpo{
+    gap: 150px;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    border-radius: 30px;
+    align-items: center;
+    justify-content: center;
+    border: 3px solid black;
+    background-color:lightpink;   
+}
+
+.produto{
+    text-align: center;
+    border: 3px solid black;
+    background-color: lightblue;
+}
