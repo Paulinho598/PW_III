@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <title>Cadastro</title>
+        <link rel="stylesheet" href="style.css">
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
+    </head>
+    <body>
+        <h1>Cadastro</h1>
+        <div id="Form">
+            <form action="funções.php" method="POST" id="formulário">
+                <label for="nome">NOME</label>
+                <input type="text" id="nome" name="nome">
+
+                <label for="endereco">ENDERECO</label>
+                <input type="text" id="endereco" name="endereco">
+
+                <label for="bairro">BAIRRO</label>
+                <input type="text" id="bairro" name="bairro">
+
+                <label for="cidade">CIDADE</label>
+                <input type="text" id="cidade" name="cidade">
+
+                <label for="uf">UNIDADE FEDERAL</label>
+                <input type="text" id="uf" name="uf">
+
+                <label for="cep">CEP</label>
+                <input type="text" id="cep" name="cep"> 
+
+                <label for="email">EMAIL</label>
+                <input type="email" id="email" name="email"> 
+
+                <label for="celular">CELULAR</label>
+                <input type="text" id="celular" name="celular">
+
+                <input type="submit" id="botão" value="CADASTRAR">
+            </form>
+        </div>
+    </body>
+    <script>
+        $(document).ready(function(){
+            $("#cep").mask('00000-000')
+            $("#celular").mask('(00) 00000-0000');
+        })
+    </script>
+</html>
