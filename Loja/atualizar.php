@@ -2,9 +2,7 @@
 session_start();
 include_once("./conexão.php");
 
-// Verifica se é uma requisição POST
 if($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // Coleta os dados com segurança
     $nome = filter_input(INPUT_POST, 'nome', FILTER_SANITIZE_STRING);
     $endereco = filter_input(INPUT_POST, 'endereco', FILTER_SANITIZE_STRING);
     $bairro = filter_input(INPUT_POST, 'bairro', FILTER_SANITIZE_STRING);
@@ -13,8 +11,12 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
     $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
     $cep = filter_input(INPUT_POST, 'cep', FILTER_SANITIZE_STRING);
     $celular = filter_input(INPUT_POST, 'celular', FILTER_SANITIZE_STRING);
+    $id_cliente = filter_input(INPUT_POST, 'id', FILTER_VALIDATE_INT);
 
-    // Armazena na sessão
+    if(!$id_cliente) {
+        die("ID do cliente inválido");
+    }
+
     $_SESSION['cliente'] = [
         'nome' => $nome,
         'endereco' => $endereco,
@@ -24,19 +26,30 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
         'email' => $email,
         'cep' => $cep,
         'celular' => $celular,
-        'data_cadastro' => date('d-m-Y H:i:s')
+        'data_cadastro' => date('d-m-Y H:i:s'),
+        'id' => $id_cliente
     ];
 
-    try {
-        $verificar = $pdo->prepare("SELECT id FROM cliente WHERE email = :email OR celular = :celular");
-        $verificar->bindValue(":email", $email);
-        $verificar->bindValue(":celular", $celular);
+    try{
+        $verificar = $pdo->prepare("SELECT id FROM cliente WHERE id = :id");
+        $verificar->bindValue(":id", $id_cliente);
         $verificar->execute();
         
-        if($verificar->rowCount() == 0){
-            $inserir = $pdo->prepare("INSERT INTO cliente (nome, Endereco, bairro, cidade, uf, CEP, celular, email, cadastro, alteracao, dataCadastro, dataAlteracao) VALUES (:nome, :endereco, :bairro, :cidade, :uf, :cep, :celular, :email, CURDATE(), CURDATE(), USER(), USER())");
+        if($verificar->rowCount() > 0){
+            $atualizar = $pdo->prepare("UPDATE cliente SET 
+                nome = :nome, 
+                Endereco = :endereco, 
+                bairro = :bairro, 
+                cidade = :cidade, 
+                uf = :uf, 
+                CEP = :cep, 
+                celular = :celular, 
+                email = :email, 
+                alteracao = CURDATE(), 
+                dataAlteracao = USER() 
+                WHERE id = :id");
             
-            $inserir->execute([
+            $atualizar->execute([
                 ':nome' => $nome,
                 ':endereco' => $endereco,
                 ':bairro' => $bairro,
@@ -44,13 +57,14 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
                 ':uf' => $uf,
                 ':cep' => $cep,
                 ':celular' => $celular,
-                ':email' => $email
+                ':email' => $email,
+                ':id' => $id_cliente
             ]);
 
             header("Location: Ler.php");
             exit();
         } else {
-            echo "Cliente já cadastrado";
+            echo "Cliente não encontrado";
         }
     } catch (PDOException $e) {
         echo "Erro no banco de dados: " . $e->getMessage();

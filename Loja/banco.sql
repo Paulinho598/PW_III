@@ -49,7 +49,7 @@ create table pedido_detalhe (
     codigo int,
     valor double(7,2),
     quantidade int (5),
-    ipi   double(5,2),
+    ipi double(5,2),
     data date,
     numero int
 );
