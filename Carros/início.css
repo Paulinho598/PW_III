@@ -1,0 +1,47 @@
+body{
+    background-color: lightpink;
+}
+
+#body{
+    display: flex;
+    margin-top: 180px;
+    align-items: center;
+    justify-content: center;
+}
+
+div#corpo{
+    padding: 100px;
+    border-radius: 15px;
+    flex-direction: column;
+    background-color: aqua;
+    border: 1px solid black;
+    box-shadow: 1px 1px 1px black;
+}
+
+h1{
+    text-align: center;
+    color: rgb(5, 7, 117)
+}
+
+#btn{
+    gap: 80px;
+    display: flex;
+    flex-direction: row;
+}
+
+#botão{
+    padding: 8px;
+    color: black;
+    margin-top: 20px;
+    border-radius: 15px;
+    text-decoration: none;
+    border: 1px solid black;
+    box-shadow: 1px 1px 1px black;
+    background-color: rgb(255, 109, 219);
+}
+
+#botão:hover{
+    opacity: 0.9;
+    color: white;
+    background-color: rgb(255, 109, 219);
+}
