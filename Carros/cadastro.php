@@ -13,22 +13,28 @@
                 <div id="form">
                     <div class="input">
                         <label for="modelo">Modelo:</label>
-                        <input type="text" name="modelo" id="modelo">
+                        <input type="text" name="modelo" id="modelo" placeholder="Fiat">
                     </div>
                     <div class="input">
                         <label for="ano">Ano:</label>
-                        <input type="text" name="ano" id="ano">
+                        <input type="number" name="ano" id="ano" placeholder="2000">
                     </div>
                     <div class="input">
                         <label for="placa">Placa:</label>
-                        <input type="text" name="placa" id="placa">
+                        <input type="text" name="placa" id="placa" placeholder="ABC12D3">
+                    </div>
+                    <div class="input">
+                        <label for="valor">Valor:</label>
+                        <input type="number" name="valor" id="valor" placeholder="$20,00">
+                    </div>
+                    <div class="input">
+                        <label for="cor">Cor:</label>
+                        <input type="text" name="cor" id="cor" placeholder="azul goiaba">
                     </div>
                     <div id="btn">
                         <input type="submit" value="gravar" name="gravar" id="gravar" class="botão">
                         <button type="button" class="botão" name="limpar" id="limpar" class="botão" onclick="limpar()">limpar</button>
                         <a href="início.html" class="botão">voltar</a>
-                        <!--
-                        -->
                     </div>
                 </div>
             </form>
@@ -66,8 +72,9 @@ if(isset($_GET['gravar'])){
         $data = date("Y-m-d H:i:s");
 
         $sql = "insert into carros(modelo,ano,placa,cadastro) values('$modelo','$ano','$placa','$data');";
+        $resultado = "select placa from carros;";
 
-        if ($conn->query($sql)) {
+        if ($conn->query($sql) && $resultado->num_rows == 0){
             echo "<script>alert('Cadastrado!')</script>";
             echo "<script>window.location.href = 'início.html'</script>";
         }else{

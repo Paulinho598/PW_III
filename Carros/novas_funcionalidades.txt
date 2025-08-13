@@ -1,0 +1,42 @@
+FEATURES 2 - (NOVAS FUNCIONALIDADES)
+
+OBSERVAÇÃO ALTERE SUA TABELA INCLUINDO OS CAMPOS:  valor double (10,2), cor varchar(15)
+-------------------------------------------------------------------------------------
+
+a) NOVAS FUNCIONALIDADES  (ATENÇÃO ESCOLHA APENAS UMA DAS FUNCIONALIDADES ABAIXO PARA IMPLEMENTAR EM SEU SISTEMA)
+
+
+	1) Alteração do banco de dados, incluir campos valor double (10,2), cor varchar(15)
+
+	2) Criar Rotina de alteração de valor do carro
+
+
+	3) Criar Relatório Modelo A1(id, modelo, ano, placa, cor) 
+		RELATÓRIO A1 - WEBCAR		DATA EMISSÃO: 13/08/25 16:55
+--------------------------------------------------------------------------------
+	ID	|	MODELO	|	ANO |	PLACA	 	| COR
+	1		Celta		2015	BGA1901	          Prata
+	3		KA		2012	HBA20192	          Vermelho
+
+	4) Criar Relatório Modelo A2 com campos modelo, ano cor e valor, dar opção de exibir por ordem de valor ou ano, 
+		RELATÓRIO A2 - WEBCAR		DATA EMISSÃO: 13/08/25 17:55
+			Ordem de : Valor  
+----------------------------------------------------------------------------------
+	MODELO	| ANO	|	COR	|	VALOR
+	Celta	  2015		PRATA		15450,00 
+	KA	  2012		Vermelho	16500,00
+
+
+	5) Criar relatório Modelo A3 com campos (modelo, placa, ano, cor, valor ,  valor corrigido)
+		RELATÓRIO A2 - WEBCAR		DATA EMISSÃO: 13/08/25 17:55
+			Ordem de : Valor  Correção: 20%
+----------------------------------------------------------------------------------
+	MODELO	| PLACA	| ANO	|  COR  |   	VALOR 	   |  VALOR CORRIGIDO
+	Celta	  2015	  2015	  PRATA		15450,00 	18540,00
+	KA	  2012	  2012	  Vermelho	      16500,00	19800,00
+
+
+
+DATA ENTREGA: 20/08
+ATÉ AS 15:00
+LOCAL TEAMS
