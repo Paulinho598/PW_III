@@ -15,6 +15,8 @@
                         <th>Modelo</th>
                         <th>Ano</th>
                         <th>Placa</th>
+                        <th>Valor</th>
+                        <th>Cor</th>
                     </thead>
                     <tbody>
                         <?php
@@ -30,7 +32,7 @@
                                     die("Conexão falhou:".$conn->connect_error);
                                 }
 
-                                $sql = "select modelo, ano, placa from carros;";
+                                $sql = "select modelo, ano, placa, valor, cor from carros;";
                                 $resultado = $conn->query($sql);
 
                                 if ($resultado->num_rows>0){
@@ -39,10 +41,12 @@
                                         echo "<td>".$linha["modelo"]."</td>";
                                         echo "<td>".$linha["ano"]."</td>";
                                         echo "<td>".$linha["placa"]."</td>";
+                                        echo "<td>".$linha["valor"]."</td>";
+                                        echo "<td>".$linha["cor"]."</td>";
                                         echo "</tr>";
                                     };
                                 }else{
-                                    echo "<tr><td colspan='3'>Nenhum Carro Cadastrado!</td></tr>";
+                                    echo "<tr><td colspan='5'>Nenhum Carro Cadastrado!</td></tr>";
                                 };
                             } catch (Exception $e) {
                                 echo "<script>alert('ERRO! " . addslashes($e->getMessage()) . "')</script>";

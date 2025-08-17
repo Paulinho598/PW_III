@@ -4,7 +4,11 @@
         <meta charset="UTF-8">
         <title>Automóveis - Cadastro</title>
         <link rel="stylesheet" href="cadastro.css">
+        <script src="jquery.maskMoney.js" type="text/javascript"></script>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-maskmoney/3.0.2/jquery.maskMoney.min.js"></script>
+        
     </head>
     <body>
         <div id="body">
@@ -25,7 +29,7 @@
                     </div>
                     <div class="input">
                         <label for="valor">Valor:</label>
-                        <input type="number" name="valor" id="valor" placeholder="$20,00">
+                        <input type="text" name="valor" id="valor" placeholder="$20,00" onfocus="formatarDinheiro(this)">
                     </div>
                     <div class="input">
                         <label for="cor">Cor:</label>
@@ -33,7 +37,7 @@
                     </div>
                     <div id="btn">
                         <input type="submit" value="gravar" name="gravar" id="gravar" class="botão">
-                        <button type="button" class="botão" name="limpar" id="limpar" class="botão" onclick="limpar()">limpar</button>
+                        <a class="botão" name="limpar" id="limpar" onclick="limpar()">limpar</a>
                         <a href="início.html" class="botão">voltar</a>
                     </div>
                 </div>
@@ -47,7 +51,24 @@
         document.getElementById('modelo').value = ""
         document.getElementById('ano').value = ""
         document.getElementById('placa').value = ""
+        document.getElementById('valor').value = ""
+        document.getElementById('cor').value = ""
     }
+
+    $(document).ready(function(){
+            $('#valor').maskMoney({
+                prefix: 'R$',
+                thousands: '.',
+                decimal: ',',
+                allowZero: true,
+                allowNegative: false
+            })
+
+            window.formatarDinheiro = function(input){
+                $(input).maskMoney('mask')
+            }
+        }
+    )
 </script>
 
 <?php
@@ -67,11 +88,16 @@ if(isset($_GET['gravar'])){
         $modelo = $conn->real_escape_string($_GET['modelo']);
         $ano = $conn->real_escape_string($_GET['ano']);
         $placa = $conn->real_escape_string($_GET['placa']);
+        $cor = $conn->real_escape_string($_GET['cor']);
+
+
+        $valor = $conn->real_escape_string($_GET['valor']);
+        $valorFinal = str_replace(['R$','.',','], ['','','.'], $_GET['valor']);
 
         date_default_timezone_set('America/Sao_Paulo');
         $data = date("Y-m-d H:i:s");
 
-        $sql = "insert into carros(modelo,ano,placa,cadastro) values('$modelo','$ano','$placa','$data');";
+        $sql = "insert into carros(modelo,ano,placa,valor,cor,cadastro) values('$modelo','$ano','$placa', '$valorFinal', '$cor','$data');";
         $resultado = "select placa from carros;";
 
         if ($conn->query($sql) && $resultado->num_rows == 0){
