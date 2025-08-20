@@ -10,6 +10,9 @@
         <div id="body">
             <div id="corpo">
                 <h1>CAD-WEB</h1>
+                <div id="dataContainer">
+                    <label id="Data" name="Data">Data:<span id="ValorData"></span></label>
+                </div>
                 <div id="btn">
                     <a href="cadastro.php" id="botão"><p>Cadastrar</p></a>
                     <a href="consulta.php" id="botão"><p>Consultar</p></a>
@@ -18,4 +21,13 @@
             </div>
         </div>
     </body>
+    <script>
+        function getDate(span){
+            const hoje = new Date()
+            const detalhes = {year: 'numeric', month: '2-digit', day: '2-digit' }
+            return hoje.toLocaleDateString('pt-BR', detalhes)
+        }
+
+        document.getElementById("ValorData").textContent = getDate()
+    </script>
 </html>

@@ -13,7 +13,7 @@
     </head>
     <body>
         <div id="body">
-            <form action="cadastro.php" method="get" id="corpo">
+            <form action="alterar.php" method="get" id="corpo">
                 <h1>Alterar o Valor do Automóvel</h1>
                 <div id="form">
                     <div class="input">
@@ -85,7 +85,7 @@ if(isset($_GET['alterar'])){
 
             if ($conn->query($sql) === TRUE){
                 echo "<script>alert('Valor Alterado com Sucesso!')</script>";
-                echo "<script>window.location.href = 'início.html'</script>";
+                echo "<script>window.location.href = 'consulta.php'</script>";
             } else{
                 echo "<script>alert('ERRO! " . addslashes($conn->error) . "')</script>";
             }

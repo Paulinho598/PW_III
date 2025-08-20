@@ -13,4 +13,5 @@ cor varchar(30)
 );
 
 select * from carros;
+-- select * from carros where placa = '1' or id = '1';
 -- drop database veículos;

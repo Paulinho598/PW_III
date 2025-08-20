@@ -1,4 +1,5 @@
 body{
+    font-family: ;
     background-color: lightpink;
 }
 
@@ -10,6 +11,7 @@ body{
 }
 
 div#corpo{
+    width: 450px;
     padding: 120px;
     border-radius: 15px;
     flex-direction: column;
@@ -44,4 +46,16 @@ h1{
     opacity: 0.9;
     color: white;
     background-color: rgb(255, 109, 219);
+}
+
+#dataContainer{
+    display: flex;
+    justify-content: right;
+}
+
+#Data{
+    left: 50px;
+    top: -160px;
+    font-size: 18px;
+    position: relative;
 }
