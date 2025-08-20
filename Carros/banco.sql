@@ -7,6 +7,7 @@ modelo varchar(50),
 ano int(4),
 placa varchar(7) unique,
 cadastro datetime,
+alteracaoValor datetime,
 valor double(10,2),
 cor varchar(30)
 );

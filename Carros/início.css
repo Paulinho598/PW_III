@@ -10,7 +10,7 @@ body{
 }
 
 div#corpo{
-    padding: 100px;
+    padding: 120px;
     border-radius: 15px;
     flex-direction: column;
     background-color: aqua;
