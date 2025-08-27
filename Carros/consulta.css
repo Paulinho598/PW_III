@@ -10,7 +10,7 @@ body{
 }
 
 #corpo{
-    padding: 100px;
+    padding: 80px;
     border-radius: 15px;
     flex-direction: column;
     border: 1px solid black;
@@ -19,8 +19,10 @@ body{
 }
 
 h1{
+    top: 80px;
     font-size: 30px;
     text-align: center;
+    position: relative;
     margin-bottom: 50px;
     color: rgb(5, 7, 117)
 }
@@ -76,4 +78,33 @@ td, th, tr{
     opacity: 0.9;
     color: white;
     background-color: rgb(255, 109, 219);
+}
+
+#dataContainer{
+    display: flex;
+    justify-content: right;
+}
+
+#Data{
+    left: 50px;
+    top: -160px;
+    font-size: 18px;
+    position: relative;
+}
+
+#corContainer{
+    gap: 2px;
+    top: -185px;
+    left: -70px;
+    padding: 5px;
+    display: flex;
+    width: fit-content;
+    position: relative;
+    flex-direction: column;
+}
+
+#corLbl{
+    width: 130px;
+    font-size: 20px;
+    font-weight: bolder;
 }

@@ -6,10 +6,17 @@
         <link rel="stylesheet" href="consulta.css">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
-    <body>
+    <body class="batata">
         <div id="body">
             <div id="corpo">
                 <h1>Consulta</h1>
+                <div id="dataContainer">
+                    <label id="Data" name="Data">Data:<span id="ValorData"></span></label>
+                </div>
+                <div id="corContainer">
+                    <span id="corLbl">Modifique a cor da página:</span>
+                    <input type="color" id="CorFundo" name="corFundo" oninput="Background(this)"/>
+                </div>
                 <table>
                     <thead>
                         <th>Modelo</th>
@@ -60,4 +67,23 @@
             </div>
         </div>
     </body>
+
+    <script>
+        function getDate(span){
+            const hoje = new Date()
+            const detalhes = {year: 'numeric', month: '2-digit', day: '2-digit' }
+            return hoje.toLocaleDateString('pt-BR', detalhes)
+        }
+
+        document.getElementById("ValorData").textContent = getDate()
+
+        function Background(input){
+            const cor = input.value
+            const page = document.getElementsByClassName('batata')
+
+            if (page.length > 0){
+                page[0].style.backgroundColor = cor
+            }
+        }
+    </script>
 </html>

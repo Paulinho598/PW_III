@@ -21,6 +21,8 @@ div#corpo{
 }
 
 h1{
+    top: 60px;
+    position: relative;
     text-align: center;
     color: rgb(5, 7, 117)
 }
@@ -69,4 +71,10 @@ h1{
     width: fit-content;
     position: relative;
     flex-direction: column;
+}
+
+#corLbl{
+    width: 130px;
+    font-size: 20px;
+    font-weight: bolder;
 }

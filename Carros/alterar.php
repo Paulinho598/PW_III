@@ -11,10 +11,17 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-maskmoney/3.0.2/jquery.maskMoney.min.js"></script>
         
     </head>
-    <body>
+    <body class="batata">
         <div id="body">
             <form action="alterar.php" method="get" id="corpo">
                 <h1>Alterar o Valor do Automóvel</h1>
+                <div id="dataContainer">
+                    <label id="Data" name="Data">Data:<span id="ValorData"></span></label>
+                </div>
+                <div id="corContainer">
+                    <span id="corLbl">Modifique a cor da página:</span>
+                    <input type="color" id="CorFundo" name="corFundo" oninput="Background(this)"/>
+                </div>
                 <div id="form">
                     <div class="input">
                         <label for="placa">Placa:</label>
@@ -55,6 +62,23 @@
             }
         }
     )
+
+    function getDate(span){
+        const hoje = new Date()
+        const detalhes = {year: 'numeric', month: '2-digit', day: '2-digit' }
+        return hoje.toLocaleDateString('pt-BR', detalhes)
+    }
+
+    document.getElementById("ValorData").textContent = getDate()
+
+    function Background(input){
+        const cor = input.value
+        const page = document.getElementsByClassName('batata')
+
+        if (page.length > 0){
+            page[0].style.backgroundColor = cor
+        }
+    }
 </script>
 
 <?php
