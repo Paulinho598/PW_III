@@ -6,12 +6,16 @@
         <link rel="stylesheet" href="início.css">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
-    <body>
+    <body class="batata">
         <div id="body">
             <div id="corpo">
                 <h1>CAD-WEB</h1>
                 <div id="dataContainer">
                     <label id="Data" name="Data">Data:<span id="ValorData"></span></label>
+                </div>
+                <div id="corContainer">
+                    <span>Modifique a cor da página:</span>
+                    <input type="color" id="CorFundo" name="corFundo" oninput="Background(this)"/>
                 </div>
                 <div id="btn">
                     <a href="cadastro.php" id="botão"><p>Cadastrar</p></a>
@@ -29,5 +33,14 @@
         }
 
         document.getElementById("ValorData").textContent = getDate()
+
+        function Background(input){
+            const cor = input.value
+            const page = document.getElementsByClassName('batata')
+
+            if (page.length > 0){
+                page[0].style.backgroundColor = cor
+            }
+        }
     </script>
 </html>
