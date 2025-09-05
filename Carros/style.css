@@ -1,0 +1,130 @@
+/* CONFIGURAÇÕES GERAIS */
+
+body{
+    background-color: lightpink;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+#body{
+    display: flex;
+    margin-top: 180px;
+    align-items: center;
+    justify-content: center;
+}
+
+/* CONTÂINER DO CONTEÚDO */
+
+#corpo{
+    width: 450px;
+    padding: 120px;
+    border-radius: 15px;
+    flex-direction: column;
+    border: 1px solid black;
+    background-color: lightblue;
+    box-shadow: 1px 1px 1px black;
+}
+
+/* TÍTULO */
+
+h1{
+    color: #04a5e5;
+    text-align: center;
+}
+
+/* BOTÕES */
+
+#btn{
+    gap: 80px;
+    display: flex;
+    flex-direction: row;
+}
+
+#botão, .botão{
+    padding: 8px;
+    color: black;
+    margin-top: 20px;
+    border-radius: 15px;
+    text-decoration: none;
+    border: 1px solid black;
+    background-color: lightpink;
+    box-shadow: 1px 1px 1px black;
+}
+
+#botão:hover, .botão:hover{
+    opacity: 0.9;
+    color: white;
+    background-color: pink;
+}
+
+a{
+    color: black;
+    text-decoration: none;
+}
+
+a:hover{
+    opacity: 0.9;
+    color: white;
+    background-color: pink;
+}
+
+/* DATA */
+
+#dataContainer{
+    display: flex;
+    justify-content: right;
+}
+
+#Data{
+    left: 50px;
+    top: -170px;
+    font-size: 21px;
+    position: relative;
+}
+
+/* BOTÕES PARA MUDAR A COR DO FUNDO */
+
+#corContainer{
+    top: 20px;
+    left: 20px;
+    display: flex;
+    padding: 10px;
+    position: fixed;
+    border-radius: 8px;
+    flex-direction: column;
+    border: 1px solid black;
+    background-color: lightblue;
+    box-shadow: 1px 1px 1px black;
+}
+
+#corLbl{
+    width: 130px;
+    font-size: 20px;
+    font-weight: bolder;
+}
+
+#corFundo{
+   left: 35px;
+   width: 50px;
+   position: relative;
+}
+
+
+/* INPUTS */
+.input{
+    margin: 15px;
+    display: flex;
+    align-items: left;
+    justify-content: left;
+}
+
+label{
+    width: 150px;
+    font-size: 20px;
+    color: #04a5e5;
+}
+
+input{
+    width: 200px;
+    box-sizing: border-box;
+    box-shadow: 1px 1px 1px black;
+}

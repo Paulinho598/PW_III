@@ -3,6 +3,7 @@
     <head>
         
         <meta charset="UTF-8">
+        <link rel="stylesheet" href="style.css">
         <title>Automóveis - Alterar Valor</title>
         <link rel="stylesheet" href="alterar.css">
         <script src="jquery.maskMoney.js" type="text/javascript"></script>
@@ -20,7 +21,7 @@
                 </div>
                 <div id="corContainer">
                     <span id="corLbl">Modifique a cor da página:</span>
-                    <input type="color" id="CorFundo" name="corFundo" oninput="Background(this)"/>
+                    <input type="color" id="corFundo" name="corFundo" oninput="Background(this)"/>
                 </div>
                 <div id="form">
                     <div class="input">

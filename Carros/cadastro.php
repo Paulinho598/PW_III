@@ -4,6 +4,7 @@
         
         <meta charset="UTF-8">
         <title>Automóveis - Cadastro</title>
+        <link rel="stylesheet" href="style.css">
         <link rel="stylesheet" href="cadastro.css">
         <script src="jquery.maskMoney.js" type="text/javascript"></script>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -21,7 +22,7 @@
                     </div>
                     <div id="corContainer">
                         <span id="corLbl">Modifique a cor da página:</span>
-                        <input type="color" id="CorFundo" name="corFundo" oninput="Background(this)"/>
+                        <input type="color" id="corFundo" name="corFundo" oninput="Background(this)"/>
                     </div>
                 </div>
                 <div id="form">

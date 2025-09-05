@@ -3,21 +3,23 @@
     <head>
         <meta charset="UTF-8">
         <title>Automóveis - Início</title>
+        <link rel="stylesheet" href="style.css">
         <link rel="stylesheet" href="início.css">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body class="batata">
         <div id="body">
+            <div id="corContainer">
+                <span id="corLbl">Modifique a cor da página:</span>
+                <input type="color" id="corFundo" name="corFundo" oninput="Background(this)"/>
+            </div>
             <div id="corpo">
                 <h1>CAD-WEB</h1>
                 <div id="dataContainer">
                     <label id="Data" name="Data">Data:<span id="ValorData"></span></label>
                 </div>
-                <div id="corContainer">
-                    <span id="corLbl">Modifique a cor da página:</span>
-                    <input type="color" id="CorFundo" name="corFundo" oninput="Background(this)"/>
-                </div>
                 <div id="btn">
+                    <td></td>
                     <a href="cadastro.php" id="botão"><p>Cadastrar</p></a>
                     <a href="consulta.php" id="botão"><p>Consultar</p></a>
                     <a href="alterar.php" id="botão"><p>Alterar Valor</p></a>
