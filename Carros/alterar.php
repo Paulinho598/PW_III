@@ -89,39 +89,46 @@ if(isset($_GET['alterar'])){
     $server = "localhost";
     $database = "veículos";
 
-    try{
-        $conn = new mysqli($server,$user,$password,$database);
+    $conn = new mysqli($server,$user,$password,$database);
 
-        if($conn->connect_error){
-            die("Conexão falhou:".$conn->connect_error);
-        }
-        $placa = $conn->real_escape_string($_GET['placa']);
+    $bloqueio = $conn->real_escape_string($_GET['Bloqueio']);
 
-        $valor = $conn->real_escape_string($_GET['valor']);
-        $valorFinal = str_replace(['R$','.',','], ['','','.'], $_GET['valor']);
-
-        date_default_timezone_set('America/Sao_Paulo');
-        $dataAlteracao = date("Y-m-d H:i:s");
-
-        $resultado = $conn->query("select placa from carros where placa = '$placa'");
-
-        if ($resultado && $resultado->num_rows == 1){
-            $sql = "update carros set valor = '$valorFinal', alteracaoValor = '$dataAlteracao' where placa = '$placa'";
-
-            if ($conn->query($sql) === TRUE){
-                echo "<script>alert('Valor Alterado com Sucesso!')</script>";
-                echo "<script>window.location.href = 'consulta.php'</script>";
-            } else{
-                echo "<script>alert('ERRO! " . addslashes($conn->error) . "')</script>";
+    if ($bloqueio == "Bloqueado"){
+        echo "<script>alert('Não é possível mudar o valor de carros bloqueados!')</script>";
+        echo "<script>window.location.href = 'início.html'</script>";
+    }else{
+       try{
+            if($conn->connect_error){
+                die("Conexão falhou:".$conn->connect_error);
             }
-        }else{
-            echo "<script>alert('Placa não encontrada!')</script>";
-        }
+            $placa = $conn->real_escape_string($_GET['placa']);
 
-        $conn->close();
+            $valor = $conn->real_escape_string($_GET['valor']);
+            $valorFinal = str_replace(['R$','.',','], ['','','.'], $_GET['valor']);
 
-    } catch (Exception $e){
-        echo "<script>alert('ERRO! " . addslashes($e->getMessage()) . "')</script>";
+            date_default_timezone_set('America/Sao_Paulo');
+            $dataAlteracao = date("Y-m-d H:i:s");
+
+            $resultado = $conn->query("select placa from carros where placa = '$placa'");
+
+            if ($resultado && $resultado->num_rows == 1){
+                $sql = "update carros set valor = '$valorFinal', alteracaoValor = '$dataAlteracao' where placa = '$placa'";
+
+                if ($conn->query($sql) === TRUE){
+                    echo "<script>alert('Valor Alterado com Sucesso!')</script>";
+                    echo "<script>window.location.href = 'consulta.php'</script>";
+                } else{
+                    echo "<script>alert('ERRO! " . addslashes($conn->error) . "')</script>";
+                }
+            }else{
+                echo "<script>alert('Placa não encontrada!')</script>";
+            }
+
+            $conn->close();
+
+        } catch (Exception $e){
+            echo "<script>alert('ERRO! " . addslashes($e->getMessage()) . "')</script>";
+        } 
     }
 }
 ?>

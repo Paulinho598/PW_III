@@ -1,5 +1,14 @@
+#corpo{
+    margin-top: -60px;
+}
+
 .botão{
     width: 80px;
     cursor: pointer;
     text-align: center;
+}
+
+#bloqueio, #Seguro{
+    display: flex;
+    flex-direction: column;
 }

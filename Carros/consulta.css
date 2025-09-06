@@ -5,8 +5,17 @@ table, td{
     box-shadow: 1px 1px 1px black;
 }
 
+#corpo{
+    padding: 150px;
+    margin-top: -50px;
+}
+
 table{
+    left: -110px;
+    position: relative;
     text-align: center;
+    align-items: center;
+    flex-direction: column;
     background-color: lightpink;
 }
 
@@ -24,6 +33,9 @@ td:hover{
 
 td, th, tr{
     width: 50px;
+    padding: 10px;
+    border-radius: 20px;
+    border: 1px solid black;
 }
 
 #btn{

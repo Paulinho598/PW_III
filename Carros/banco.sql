@@ -9,7 +9,11 @@ placa varchar(7) unique,
 cadastro datetime,
 alteracaoValor datetime,
 valor double(10,2),
-cor varchar(30)
+cor varchar(30),
+seguro varchar(3),
+documento int(2),
+ocorrência int(2),
+bloqueio varchar(12)
 );
 
 select * from carros;

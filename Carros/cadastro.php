@@ -46,6 +46,36 @@
                         <label for="cor">Cor:</label>
                         <input type="text" name="cor" id="cor" placeholder="azul goiaba" minlength="4" maxlength="30" required>
                     </div>
+                    <div class="input">
+                        <label for="cadastro">Bloqueio:</label>
+                        <!--
+                            <div id="bloqueio">
+                                <input type="radio" name="Bloqueio" id="Bloqueado">
+                                <label for="sim" name="bloqueado" id="bloqueado">Bloqueado</label>
+                                <input type="radio" name="Bloqueio" id="Desbloqueado" checked>
+                                <label for="não" name="desbloqueado" id="desbloqueado">Desbloqueado</label>
+                            </div>
+                        -->
+                        <select name="bloqueio" id="bloqueio">
+                            <option value="Bloqueado">Bloqueado</option>
+                            <option value="Desbloqueado">Desbloqueado</option>
+                        </select>
+                    </div>
+                    <div class="input">
+                        <label for="seguro">Seguro:</label>
+                        <!--
+                            <div id="Seguro">
+                                <input type="radio" name="Seguro" id="Sim">
+                                <label for="sim" name="Sim" id="Sim">Sim</label>
+                                <input type="radio" name="Seguro" id="Não">
+                                <label for="não" name="Não" id="Não">Não</label>
+                            </div>
+                        -->
+                        <select name="Seguro" id="Seguro">
+                            <option value="Sim">Sim</option>
+                            <option value="Não">Não</option>
+                        </select>
+                    </div>
                     <div id="btn">
                         <input type="submit" value="gravar" name="gravar" id="gravar" class="botão">
                         <a class="botão" name="limpar" id="limpar" onclick="limpar()">limpar</a>
@@ -125,7 +155,10 @@ if(isset($_GET['gravar'])){
         date_default_timezone_set('America/Sao_Paulo');
         $data = date("Y-m-d H:i:s");
 
-        $sql = "insert into carros(modelo,ano,placa,valor,cor,cadastro) values('$modelo','$ano','$placa', '$valorFinal', '$cor','$data');";
+        $seguro = isset($_GET['Seguro']) ? $conn->real_escape_string($_GET['Seguro']) : 'Não';
+        $bloqueio = isset($_GET['Bloqueio']) ? $conn->real_escape_string($_GET['Bloqueio']) : 'Desbloqueado';
+
+        $sql = "insert into carros(modelo,ano,placa,valor,cor,cadastro, seguro, bloqueio) values('$modelo','$ano','$placa', '$valorFinal', '$cor','$data', '$seguro', '$bloqueio');";
         $resultado = "select placa from carros;";
 
         if ($conn->query($sql) && $resultado->num_rows == 0){

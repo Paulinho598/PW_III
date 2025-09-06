@@ -18,50 +18,56 @@
                     <span id="corLbl">Modifique a cor da página:</span>
                     <input type="color" id="corFundo" name="corFundo" oninput="Background(this)"/>
                 </div>
-                <table>
-                    <thead>
-                        <th>Modelo</th>
-                        <th>Ano</th>
-                        <th>Placa</th>
-                        <th>Valor</th>
-                        <th>Cor</th>
-                    </thead>
-                    <tbody>
-                        <?php
-                            $user = 'root';
-                            $password = '';
-                            $dbname = 'veículos';
-                            $server = 'localhost';
+                <div id="tabelas">
+                    <table>
+                        <thead id="cabeçalho">
+                            <th>Modelo</th>
+                            <th>Ano</th>
+                            <th>Placa</th>
+                            <th>Valor</th>
+                            <th>Cor</th>
+                            <th>Seguro</th>
+                            <th>Bloqueio</th>
+                        </thead>
+                        <tbody>
+                            <?php
+                                $user = 'root';
+                                $password = '';
+                                $dbname = 'veículos';
+                                $server = 'localhost';
 
-                            try {
-                                $conn = new mysqli($server,$user,$password,$dbname);
+                                try {
+                                    $conn = new mysqli($server,$user,$password,$dbname);
 
-                                if($conn->connect_error){
-                                    die("Conexão falhou:".$conn->connect_error);
-                                }
+                                    if($conn->connect_error){
+                                        die("Conexão falhou:".$conn->connect_error);
+                                    }
 
-                                $sql = "select modelo, ano, placa, valor, cor from carros;";
-                                $resultado = $conn->query($sql);
+                                    $sql = "select modelo, ano, placa, valor, cor, seguro, bloqueio from carros;";
+                                    $resultado = $conn->query($sql);
 
-                                if ($resultado->num_rows>0){
-                                    while ($linha = $resultado->fetch_assoc()) {
-                                        echo "<tr>";
-                                        echo "<td>".$linha["modelo"]."</td>";
-                                        echo "<td>".$linha["ano"]."</td>";
-                                        echo "<td>".$linha["placa"]."</td>";
-                                        echo "<td>".$linha["valor"]."</td>";
-                                        echo "<td>".$linha["cor"]."</td>";
-                                        echo "</tr>";
+                                    if ($resultado->num_rows>0){
+                                        while ($linha = $resultado->fetch_assoc()) {
+                                            echo "<tr>";
+                                                echo "<td>".$linha["modelo"]."</td>";
+                                                echo "<td>".$linha["ano"]."</td>";
+                                                echo "<td>".$linha["placa"]."</td>";
+                                                echo "<td>".$linha["valor"]."</td>";
+                                                echo "<td>".$linha["cor"]."</td>";
+                                                echo "<td>".$linha["seguro"]."</td>";
+                                                echo "<td>".$linha["bloqueio"]."</td>";
+                                            echo "</tr>";
+                                        };
+                                    }else{
+                                        echo "<tr><td colspan='7'>Nenhum Carro Cadastrado!</td></tr>";
                                     };
-                                }else{
-                                    echo "<tr><td colspan='5'>Nenhum Carro Cadastrado!</td></tr>";
-                                };
-                            } catch (Exception $e) {
-                                echo "<script>alert('ERRO! " . addslashes($e->getMessage()) . "')</script>";
-                            }
-                        ?>
-                    </tbody>
-                </table>
+                                } catch (Exception $e) {
+                                    echo "<script>alert('ERRO! " . addslashes($e->getMessage()) . "')</script>";
+                                }
+                            ?>
+                        </tbody>
+                    </table>
+                </div>
                 <div id="btn">
                     <a href="início.html" class="botão">voltar</a>
                 </div>
