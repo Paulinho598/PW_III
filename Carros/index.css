@@ -1,0 +1,51 @@
+*{
+    margin: 0px
+}
+
+h1{
+    font-size: 50px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.cabeçalho, .rodapé{
+    padding: 30px;
+    background-color: gray;
+}
+
+.cabeçalho{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.rodapé{
+    top: 610px;
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+}
+
+.rodapé p{
+    font-size: 25px;
+}
+
+.leftButtons{
+    gap: 50px;
+    left: -400px;
+    display: flex;
+    position: relative;
+    justify-content: left;
+}
+
+.rightButtons{
+    left: 350px;
+    display: flex;
+    position: relative;
+}
+
+.botão{
+    padding: 30px;
+    position: relative;
+}

@@ -3,9 +3,9 @@
     <head>
         
         <meta charset="UTF-8">
-        <title>Automóveis - Cadastro</title>
+        <title>Automóveis - Login</title>
         <link rel="stylesheet" href="style.css">
-        <link rel="stylesheet" href="cadastro.css">
+        <link rel="stylesheet" href="login.css">
         <script src="jquery.maskMoney.js" type="text/javascript"></script>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
@@ -15,7 +15,7 @@
     <body class="batata">
         <div id="body">
             <form action="cadastro.php" method="get" id="corpo">
-                <h1>Cadastro de Automóvel</h1>
+                <h1>Login</h1>
                 <div id="features">
                     <div id="dataContainer">
                         <label id="Data" name="Data">Data:<span id="ValorData"></span></label>
@@ -27,60 +27,23 @@
                 </div>
                 <div id="form">
                     <div class="input">
-                        <label for="modelo">Modelo:</label>
-                        <input type="text" name="modelo" id="modelo" placeholder="Fiat" minlength="4" maxlength="50" required>
+                        <label for="modelo">Nome:</label>
+                        <input type="text" name="nome" id="nome" placeholder="Zé Ruela da Silva" maxlength="50" required>
                     </div>
                     <div class="input">
-                        <label for="ano">Ano:</label>
-                        <input type="text" name="ano" id="ano" placeholder="2000" minlength="4" maxlength="4" required>
+                        <label for="ano">E-mail:</label>
+                        <input type="email" name="email" id="email" placeholder="zeruela@gmail.com" minlength="17" required>
                     </div>
                     <div class="input">
-                        <label for="placa">Placa:</label>
-                        <input type="text" name="placa" id="placa" placeholder="ABC12D3" minlength="7" maxlength="7" required>
-                    </div>
-                    <div class="input">
-                        <label for="valor">Valor:</label>
-                        <input type="text" name="valor" id="valor" placeholder="$20,00" onfocus="formatarDinheiro(this)" required>
-                    </div>
-                    <div class="input">
-                        <label for="cor">Cor:</label>
-                        <input type="text" name="cor" id="cor" placeholder="azul goiaba" minlength="4" maxlength="30" required>
-                    </div>
-                    <div class="input">
-                        <label for="cadastro">Bloqueio:</label>
-                        <!--
-                            <div id="bloqueio">
-                                <input type="radio" name="Bloqueio" id="Bloqueado">
-                                <label for="sim" name="bloqueado" id="bloqueado">Bloqueado</label>
-                                <input type="radio" name="Bloqueio" id="Desbloqueado" checked>
-                                <label for="não" name="desbloqueado" id="desbloqueado">Desbloqueado</label>
-                            </div>
-                        -->
-                        <select name="bloqueio" id="bloqueio">
-                            <option value="Bloqueado">Bloqueado</option>
-                            <option value="Desbloqueado">Desbloqueado</option>
-                        </select>
-                    </div>
-                    <div class="input">
-                        <label for="seguro">Seguro:</label>
-                        <!--
-                            <div id="Seguro">
-                                <input type="radio" name="Seguro" id="Sim">
-                                <label for="sim" name="Sim" id="Sim">Sim</label>
-                                <input type="radio" name="Seguro" id="Não">
-                                <label for="não" name="Não" id="Não">Não</label>
-                            </div>
-                        -->
-                        <select name="Seguro" id="Seguro">
-                            <option value="Sim">Sim</option>
-                            <option value="Não">Não</option>
-                        </select>
+                        <label for="placa">Senha:</label>
+                        <input type="password" name="senha" id="senha" placeholder="12345678" minlength="8" maxlength="8" required>
                     </div>
                     <div id="btn">
                         <input type="submit" value="gravar" name="gravar" id="gravar" class="botão">
                         <a class="botão" name="limpar" id="limpar" onclick="limpar()">limpar</a>
-                        <a href="início.html" class="botão">voltar</a>
+                        <a href="funcionalidades.html" class="botão">voltar</a>
                     </div>
+                    <a href="#" class="botão">Esqueci Minha Senha</a>
                 </div>
             </form>
         </div>
