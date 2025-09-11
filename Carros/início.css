@@ -8,6 +8,10 @@ h1{
 
 #botão{
     flex: 1;
-    padding: 3px;
+    padding: 10px;
     text-align: center;
+}
+
+#btn{
+    
 }

@@ -12,3 +12,22 @@
     display: flex;
     flex-direction: column;
 }
+
+#tools{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+#tools a{
+    top: 50px;
+    position: relative;
+    text-decoration: underline;
+}
+
+#tools a:hover{
+    opacity: 0.8;
+    color: gray;
+    text-decoration: underline;
+    background-color: transparent;
+}

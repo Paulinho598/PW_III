@@ -10,7 +10,9 @@ h1{
 
 .cabeçalho, .rodapé{
     padding: 30px;
-    background-color: gray;
+    border: 1px solid black;
+    background-color: lightblue;
+    box-shadow: 1px 1px 1px black;
 }
 
 .cabeçalho{
@@ -20,7 +22,7 @@ h1{
 }
 
 .rodapé{
-    top: 610px;
+    top: 560px;
     display: flex;
     position: relative;
     align-items: center;

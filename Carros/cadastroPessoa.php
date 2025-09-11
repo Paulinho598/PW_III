@@ -1,9 +1,8 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-    <head>
-        
+    <head>        
         <meta charset="UTF-8">
-        <title>Automóveis - Login</title>
+        <title>Automóveis - Cadastro</title>
         <link rel="stylesheet" href="style.css">
         <link rel="stylesheet" href="login.css">
         <script src="jquery.maskMoney.js" type="text/javascript"></script>
@@ -14,8 +13,8 @@
     </head>
     <body class="batata">
         <div id="body">
-            <form action="login.php" method="get" id="corpo">
-                <h1>Login</h1>
+            <form action="cadastroPessoa.php" method="get" id="corpo">
+                <h1>Cadastro</h1>
                 <div id="features">
                     <div id="dataContainer">
                         <label id="Data" name="Data">Data:<span id="ValorData"></span></label>
@@ -39,7 +38,7 @@
                         <input type="password" name="senha" id="senha" placeholder="12345678" minlength="8" maxlength="8" required>
                     </div>
                     <div id="btn">
-                        <input type="submit" value="Entrar" name="Entrar" id="Entrar" class="botão">
+                        <input type="submit" value="cadastrar" name="cadastrar" id="cadastrar" class="botão">
                         <a class="botão" name="limpar" id="limpar" onclick="limpar()">limpar</a>
                         <a href="index.html" class="botão">voltar</a>
                     </div>
@@ -79,7 +78,8 @@
 </script>
 
 <?php
-if(isset($_GET['Entrar'])){
+
+if(isset($_GET['cadastrar'])){
     $user = "root";
     $password = "";
     $server = "localhost";
@@ -89,37 +89,38 @@ if(isset($_GET['Entrar'])){
         $conn = new mysqli($server,$user,$password,$database);
 
         if($conn->connect_error){
-            die("Conexão falhou:".$conn->connect_error);
+            die("Conexão falhou: ".$conn->connect_error);
         }
 
+        // 🎯 CORRIGINDO os nomes das variáveis
+        $nome = $conn->real_escape_string($_GET['nome']);
         $email = $conn->real_escape_string($_GET['email']);
         $senha = $conn->real_escape_string($_GET['senha']);
+        
+        // 🔐 Criptografando a senha (no lugar certo!)
+        $senha_hash = password_hash($senha, PASSWORD_DEFAULT);
 
-        $sql = "select nome, email, senha from pessoa where email = '$email';";
-        $resultado = $conn->query($sql);
+        date_default_timezone_set('America/Sao_Paulo');
+        $data = date("Y-m-d H:i:s");
 
-        if ($resultado->num_rows == 1){
-            $usuário = $resultado->fetch_assoc();
+        // ✅ SQL correto
+        $sql = "INSERT INTO pessoa(nome, email, senha, cadastro) 
+                VALUES ('$nome', '$email', '$senha_hash', '$data')";
 
-            if(password_verify($senha, $usuário['senha'])){
-                session_start();
-
-                $_SESSION['Nome'] = $usuário['nome'];
-                $_SESSION['Email'] = $usuário['email'];
-
-                echo "<script>alert('Login Realizado com Sucesso!')</script>";
-                echo "<script>window.location.href = 'funcionalidades.html'</script>";    
-            }else{
-                echo "<script>alert('Dados Incorretos!')</script>";
-            }
+        // 🚨 REMOVI a verificação complicada (tá causando erro!)
+        if ($conn->query($sql) === TRUE){
+            echo "<script>alert('Cadastrado com sucesso!')</script>";
+            echo "<script>window.location.href = 'funcionalidades.html'</script>";
         } else {
-            echo "<script>alert('Usuário Não Encontrado!')</script>";
+            echo "<script>alert('ERRO: ".addslashes($conn->error)."')</script>";
+            echo "<script>window.location.href = 'Login.html'</script>";
         }
 
         $conn->close();
 
     } catch (Exception $e){
         echo "<script>alert('ERRO! " . addslashes($e->getMessage()) . "')</script>";
+        echo "<script>window.location.href = 'Login.html'</script>";
     }
 }
 ?>

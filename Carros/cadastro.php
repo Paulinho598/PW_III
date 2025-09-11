@@ -79,7 +79,7 @@
                     <div id="btn">
                         <input type="submit" value="gravar" name="gravar" id="gravar" class="botão">
                         <a class="botão" name="limpar" id="limpar" onclick="limpar()">limpar</a>
-                        <a href="início.html" class="botão">voltar</a>
+                        <a href="funcionalidades.html" class="botão">voltar</a>
                     </div>
                 </div>
             </form>

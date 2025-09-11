@@ -69,7 +69,7 @@
                     </table>
                 </div>
                 <div id="btn">
-                    <a href="início.html" class="botão">voltar</a>
+                    <a href="funcionalidades.html" class="botão">voltar</a>
                 </div>
             </div>
         </div>

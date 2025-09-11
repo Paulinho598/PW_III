@@ -16,6 +16,16 @@ ocorrência int(2),
 bloqueio varchar(12)
 );
 
+create table pessoa(
+id int not null primary key auto_increment,
+nome varchar(50),
+email varchar(50),
+senha varchar(100),
+cadastro datetime
+);
+
 select * from carros;
 -- select * from carros where placa = '1' or id = '1';
 -- drop database veículos;
+
+select * from pessoa;
