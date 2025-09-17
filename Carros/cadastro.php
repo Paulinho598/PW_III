@@ -130,6 +130,8 @@
 </script>
 
 <?php
+session_start();
+
 if(isset($_GET['gravar'])){
     $user = "root";
     $password = "";
@@ -156,7 +158,7 @@ if(isset($_GET['gravar'])){
         $data = date("Y-m-d H:i:s");
 
         $seguro = isset($_GET['Seguro']) ? $conn->real_escape_string($_GET['Seguro']) : 'Não';
-        $bloqueio = isset($_GET['Bloqueio']) ? $conn->real_escape_string($_GET['Bloqueio']) : 'Desbloqueado';
+        $bloqueio = isset($_GET['bloqueio']) ? $conn->real_escape_string($_GET['bloqueio']) : 'Desbloqueado';
 
         $sql = "insert into carros(modelo,ano,placa,valor,cor,cadastro, seguro, bloqueio) values('$modelo','$ano','$placa', '$valorFinal', '$cor','$data', '$seguro', '$bloqueio');";
         $resultado = "select placa from carros;";
@@ -173,5 +175,7 @@ if(isset($_GET['gravar'])){
     } catch (Exception $e){
         echo "<script>alert('ERRO! " . addslashes($e->getMessage()) . "')</script>";
     }
+
+    $_SESSION["bloqueio"] = $bloqueio;
 }
 ?>

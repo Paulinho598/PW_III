@@ -83,6 +83,9 @@
 </script>
 
 <?php
+session_start();
+
+
 if(isset($_GET['alterar'])){
     $user = "root";
     $password = "";
@@ -91,7 +94,7 @@ if(isset($_GET['alterar'])){
 
     $conn = new mysqli($server,$user,$password,$database);
 
-    $bloqueio = $conn->real_escape_string($_GET['Bloqueio']);
+    $bloqueio = $_SESSION['bloqueio'];
 
     if ($bloqueio == "Bloqueado"){
         echo "<script>alert('Não é possível mudar o valor de carros bloqueados!')</script>";

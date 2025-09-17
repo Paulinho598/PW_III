@@ -38,13 +38,12 @@
                         <input type="password" name="senha" id="senha" placeholder="12345678" minlength="8" maxlength="8" required>
                     </div>
                     <div id="btn">
-                        <input type="submit" value="cadastrar" name="cadastrar" id="cadastrar" class="botão">
+                        <input type="submit" value="cadastrar" name="cadastrar" id="cadastrar" class="botão">   
                         <a class="botão" name="limpar" id="limpar" onclick="limpar()">limpar</a>
                         <a href="index.html" class="botão">voltar</a>
                     </div>
                     <div id="tools">
-                        <a href="#">Esqueci Minha Senha</a>
-                        <a href="cadastroPessoa.php">Não Tenho Conta</a>
+                        <a href="login.php">Já Tenho Conta</a>
                     </div>
                 </div>
             </form>
