@@ -1,0 +1,13 @@
+Nome: Paulo
+Data: 02/11/25
+Ia Utilizada: DeepSeek
+-------------------------------------------------------------------------------------------
+
+NOME: Pokédex.
+FUNÇÃO: Aplicação para dispositivo móvel com catálogo completo dos 151 Pokémon da região de Kanto.
+PÚBLICO-ALVO: Jovens de 12-25 anos fãs da franquia Pokémon.
+PRINCIPAL CARACTERÍSTICA: Interface intuitiva com informações detalhadas de cada Pokémon.
+TECNOLOGIAS: React Native, Expo Router, Axios, PokeAPI.
+-------------------------------------------------------------------------------------------
+
+Conversa com a IA: https://chat.deepseek.com/share/x0rfuv9rlirk0b82rx
