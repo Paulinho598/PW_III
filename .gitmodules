@@ -1,0 +1,3 @@
+[submodule "Pok-dex"]
+	path = Pok-dex
+	url = https://github.com/Paulinho598/Pok-dex.git
